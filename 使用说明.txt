@@ -4,7 +4,7 @@
 
 在 darknet/VOCdevkit/VOC2007 路径底下运行 python test.py 生成图片名字
 
-在路径 darknet/VOCdevkit 底下运行 python voc_label.py 获得对应文件的绝对路径
+在路径 darknet/VOCdevkit 底下运行 python voc_label.py 数据清洗
 
 在路径 darknet/VOCdevkit 底下运行 cat 2007_train.txt 2007_val.txt  > train.txt 集合文件的绝对路径
 
@@ -40,10 +40,12 @@
 	OPENCV=1 #如果调用摄像头，还需要设置OPENCV为1，否则为0
 	OPENMP=0 #如果使用OPENMP设置为1，否则为0
 	DEBUG=0  #如果使用DEBUG设置为1，否则为0
+	
+	nvcc=/usr/local/cuda-10.0/bin/nvcc
 
 在 darknet 目录下运行 vi data/voc.names 添加你所分类的名字
 
-在 darknet 目录下运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 开始训练
+在 darknet 目录下运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 | tee log.txt 开始训练，在当前目录下会生成log.txt文件，里面存放着训练时的输出数据，用于评估训练出来的模型。
 
 在训练的过程中，会在 darknet/backup 文件夹底下产生一些权重模型，其中 .backup 为后缀的文件为最新的权重文件
 
@@ -51,11 +53,24 @@
 
 训练结束后，在 darknet 目录底下运行 ./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg 权重文件 要检测图片的路径
 （例 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg）进行测试
-
+图片检测 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg
+视频检测 ./darknet detector demo cfg/coco.data cfg/yolov3-voc.cfg backup/test data/input.avi
+./darknet detector demo data/voc.data yolov3.cfg yolov3.weights data/3.mp4 -out_filename xxx.mp4
 参考：
 错误集锦 https://www.twblogs.net/a/5b8e0cee2b7177188342863e/zh-cn
 配置文件 https://blog.csdn.net/hrsstudy/article/details/65447947
+yolov3-voc.cfg 文件说明 https://blog.csdn.net/maizousidemao/article/details/103541490
 log信息 https://blog.csdn.net/maweifei/article/details/81148414
 darknet/cfg/yolov3-voc.cfg 信息 https://github.com/pjreddie/darknet/commit/e84933bfdd7315736c442a41d9aed163843dda54#diff-78bdd0cc6cd80cfee41f72e28b53d14e
 综合 https://github.com/AlexeyAB/darknet#how-to-train-pascal-voc-data
 理解 https://github.com/YunYang1994/cv-notebooks/blob/master/ai_algorithm/YOLOv3.md
+修改结果图片 https://www.cnblogs.com/luzeming/p/10657823.html
+添加置信度 https://blog.csdn.net/MichalCong/article/details/91050167
+保存识别的视频 https://blog.csdn.net/sinat_33718563/article/details/79964758?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2
+详细 https://www.cnblogs.com/luzeming/p/10657823.html
+
+car		机器人
+base		泉水本体
+armor		甲板
+watcher		哨兵
+ignore		忽视
