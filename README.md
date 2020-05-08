@@ -39,39 +39,24 @@
 	在训练的过程中，会在 darknet/backup 文件夹底下产生一些权重模型，其中 .backup 为后缀的文件为最新的权重文件
 	可以运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup 继续训练
 	训练结束后，在 darknet 目录底下运行 ./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg 权重文件 要检测图片的路径
-（例 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg）进行测试
-	图片检测 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg
-	视频检测 ./darknet detector demo cfg/coco.data cfg/yolov3-voc.cfg backup/test data/input.avi
-./darknet detector demo data/voc.data yolov3.cfg yolov3.weights data/3.mp4 -out_filename xxx.mp4
-参考： 
-	错误集锦 https://www.twblogs.net/a/5b8e0cee2b7177188342863e/zh-cn 
-	
-	配置文件 https://blog.csdn.net/hrsstudy/article/details/65447947 
-	
-	yolov3-voc.cfg 文件说明 https://blog.csdn.net/maizousidemao/article/details/103541490 
-	
-	log信息 https://blog.csdn.net/maweifei/article/details/81148414 
-	
-	darknet/cfg/yolov3-voc.cfg 信息 https://github.com/pjreddie/darknet/commit/e84933bfdd7315736c442a41d9aed163843dda54#diff-78bdd0cc6cd80cfee41f72e28b53d14e 
-	
-	综合 https://github.com/AlexeyAB/darknet#how-to-train-pascal-voc-data 
-	
-	理解 https://github.com/YunYang1994/cv-notebooks/blob/master/ai_algorithm/YOLOv3.md 
-	
-	修改结果图片 https://www.cnblogs.com/luzeming/p/10657823.html 
-	
-	添加置信度 https://blog.csdn.net/MichalCong/article/details/91050167 
-	
-	保存识别的视频 https://blog.csdn.net/sinat_33718563/article/details/79964758?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2 
-	
-	详细 https://www.cnblogs.com/luzeming/p/10657823.html 
-	
-	car		机器人
-	
-	base		泉水本体 
-
-	armor		甲板 
-
-	watcher		哨兵 
-
-	ignore		忽视 
+（例 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg）进行测试<br>
+	图片检测 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg<br>
+	视频检测 ./darknet detector demo cfg/coco.data cfg/yolov3-voc.cfg backup/test data/input.avi<br>
+./darknet detector demo data/voc.data yolov3.cfg yolov3.weights data/3.mp4 -out_filename xxx.mp4<br><br>
+参考： <br>
+	错误集锦 https://www.twblogs.net/a/5b8e0cee2b7177188342863e/zh-cn <br>
+	配置文件 https://blog.csdn.net/hrsstudy/article/details/65447947 <br>
+	yolov3-voc.cfg 文件说明 https://blog.csdn.net/maizousidemao/article/details/103541490 <br>
+	log信息 https://blog.csdn.net/maweifei/article/details/81148414 <br>
+	darknet/cfg/yolov3-voc.cfg 信息 https://github.com/pjreddie/darknet/commit/e84933bfdd7315736c442a41d9aed163843dda54#diff-78bdd0cc6cd80cfee41f72e28b53d14e <br>
+	综合 https://github.com/AlexeyAB/darknet#how-to-train-pascal-voc-data<br>
+	理解 https://github.com/YunYang1994/cv-notebooks/blob/master/ai_algorithm/YOLOv3.md <br>
+	修改结果图片 https://www.cnblogs.com/luzeming/p/10657823.html <br>
+	添加置信度 https://blog.csdn.net/MichalCong/article/details/91050167 <br>
+	保存识别的视频 https://blog.csdn.net/sinat_33718563/article/details/79964758?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2 <br>
+	详细 https://www.cnblogs.com/luzeming/p/10657823.html <br>
+	car		机器人<br>
+	base		泉水本体 <br>
+	armor		甲板 <br>
+	watcher		哨兵 <br>
+	ignore		忽视 <br>
