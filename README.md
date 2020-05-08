@@ -38,11 +38,10 @@
 	在 darknet 目录下运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 | tee log.txt 开始训练，在当前目录下会生成log.txt文件，里面存放着训练时的输出数据，用于评估训练出来的模型。
 	在训练的过程中，会在 darknet/backup 文件夹底下产生一些权重模型，其中 .backup 为后缀的文件为最新的权重文件
 	可以运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup 继续训练
-	训练结束后，在 darknet 目录底下运行 ./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg 权重文件 要检测图片的路径
-（例 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg）进行测试<br>
+	训练结束后，在 darknet 目录底下运行 ./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg 权重文件 要检测图片的路径（例 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg）进行测试<br>
 	图片检测 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg<br>
 	视频检测 ./darknet detector demo cfg/coco.data cfg/yolov3-voc.cfg backup/test data/input.avi<br>
-./darknet detector demo data/voc.data yolov3.cfg yolov3.weights data/3.mp4 -out_filename xxx.mp4<br><br>
+	./darknet detector demo data/voc.data yolov3.cfg yolov3.weights data/3.mp4 -out_filename xxx.mp4<br>
 参考： <br>
 	错误集锦 https://www.twblogs.net/a/5b8e0cee2b7177188342863e/zh-cn <br>
 	配置文件 https://blog.csdn.net/hrsstudy/article/details/65447947 <br>
