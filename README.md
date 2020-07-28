@@ -4,6 +4,7 @@
 4. 在路径 darknet/VOCdevkit 底下运行 python voc_label.py 数据清洗
 5. 在路径 darknet/VOCdevkit 底下运行 cat 2007_train.txt 2007_val.txt  > train.txt 集合文件的绝对路径
 6. 返回到 darknet 目录底下运行 vi cfg/yolov3-voc.cfg 看需求修改下面标注的地方（这个一共有三处需要修改，建议从最底下开始修改）<br>
+```
 	[convolutional]
 	size=1
 	stride=1
@@ -20,21 +21,25 @@
 	ignore_thresh = .5
 	truth_thresh = 1
 	random=1	//当显卡内存不够时可以修改为0
-
+```
 7. 在 darknet 目录下运行 vi cfg/voc.data 看需求修改下面标注的地方
+```
 	classes= 2	//类别数目
 	train  = /home/ustc/Kaixiang/YOLO/darknet/scripts/2007_train.txt	//训练集目录
 	valid  = /home/ustc/Kaixiang/YOLO/darknet/scripts/2007_val.txt	//验证集目录
 	names = data/voc.names	//类别名称目录
 	backup = backup		//模型的存储目录
+```
 8. 在 darknet 目录下运行 vi Makefile 看需求修改下面标注的地方（每一次修改Makefile文件都要重新运行 make 编译，其他文件则不用）
+```
 	GPU=1    #如果使用GPU设置为1，CPU设置为0
 	CUDNN=1  #如果使用CUDNN设置为1，否则为0
 	OPENCV=1 #如果调用摄像头，还需要设置OPENCV为1，否则为0
 	OPENMP=0 #如果使用OPENMP设置为1，否则为0
 	DEBUG=0  #如果使用DEBUG设置为1，否则为0
 	nvcc=/usr/local/cuda-10.0/bin/nvcc
-9. 在 darknet 目录下运行 vi data/voc.names 添加你所分类的名字
+```
+9. 在 darknet 目录下添加你所分类的名字 ```vi data/voc.names ```
 10. 在 darknet 目录下运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 | tee log.txt 开始训练，在当前目录下会生成log.txt文件，里面存放着训练时的输出数据，用于评估训练出来的模型。
 11. 在训练的过程中，会在 darknet/backup 文件夹底下产生一些权重模型，其中 .backup 为后缀的文件为最新的权重文件
 12. 可以运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup 继续训练
