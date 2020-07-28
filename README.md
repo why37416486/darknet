@@ -1,4 +1,4 @@
-1. 将图片放置到 darknet/VOCdevkit/VOC2007/JPEGImages目录底下
+1. 将图片放置到 `darknet/VOCdevkit/VOC2007/JPEGImages`目录底下
 2. 将图片的标签放置在 darknet/VOCdevkit/VOC2007/Annotations目录底下
 3. 在 darknet/VOCdevkit/VOC2007 路径底下运行 python test.py 生成图片名字
 4. 在路径 darknet/VOCdevkit 底下运行 python voc_label.py 数据清洗
