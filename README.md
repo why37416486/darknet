@@ -60,6 +60,7 @@
 	添加置信度 https://blog.csdn.net/MichalCong/article/details/91050167 <br>
 	保存识别的视频 https://blog.csdn.net/sinat_33718563/article/details/79964758?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2 <br>
 	详细 https://www.cnblogs.com/luzeming/p/10657823.html <br>
+17. 官方xml介绍
 	car		机器人<br>
 	base		泉水本体 <br>
 	armor		甲板 <br>
