@@ -1,9 +1,9 @@
 1. 将图片放置到 `darknet/VOCdevkit/VOC2007/JPEGImages`目录底下
-2. 将图片的标签放置在 darknet/VOCdevkit/VOC2007/Annotations目录底下
-3. 在 darknet/VOCdevkit/VOC2007 路径底下运行 python test.py 生成图片名字
-4. 在路径 darknet/VOCdevkit 底下运行 python voc_label.py 数据清洗
-5. 在路径 darknet/VOCdevkit 底下运行 cat 2007_train.txt 2007_val.txt  > train.txt 集合文件的绝对路径
-6. 返回到 darknet 目录底下运行 vi cfg/yolov3-voc.cfg 看需求修改下面标注的地方（这个一共有三处需要修改，建议从最底下开始修改）<br>
+2. 将图片的标签放置在 `darknet/VOCdevkit/VOC2007/Annotations`目录底下
+3. 在 `darknet/VOCdevkit/VOC2007 路径底下运行 python test.py` 生成图片名字
+4. 在路径 `darknet/VOCdevkit` 底下运行 `python voc_label.py` 数据清洗
+5. 在路径 `darknet/VOCdevkit` 底下运行 `cat 2007_train.txt 2007_val.txt  > train.txt` 集合文件的绝对路径
+6. 返回到 `darknet` 目录底下运行 `vi cfg/yolov3-voc.cfg` 看需求修改下面标注的地方（这个一共有三处需要修改，建议从最底下开始修改）<br>
 ```
 	[convolutional]
 	size=1
@@ -39,14 +39,15 @@
 	DEBUG=0  #如果使用DEBUG设置为1，否则为0
 	nvcc=/usr/local/cuda-10.0/bin/nvcc
 ```
-9. 在 darknet 目录下添加你所分类的名字 ```vi data/voc.names ```
-10. 在 darknet 目录下运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 | tee log.txt 开始训练，在当前目录下会生成log.txt文件，里面存放着训练时的输出数据，用于评估训练出来的模型。
-11. 在训练的过程中，会在 darknet/backup 文件夹底下产生一些权重模型，其中 .backup 为后缀的文件为最新的权重文件
-12. 可以运行 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup 继续训练
-13. 训练结束后，在 darknet 目录底下运行 ./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg 权重文件 要检测图片的路径（例 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg）进行测试<br>
-14. 图片检测 ./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg<br>
-15. 视频检测 ./darknet detector demo cfg/coco.data cfg/yolov3-voc.cfg backup/test data/input.avi<br>
-	./darknet detector demo data/voc.data yolov3.cfg yolov3.weights data/3.mp4 -out_filename xxx.mp4<br>
+9. 在 darknet 目录下添加你所分类的名字 `vi data/voc.names`
+10. 在 darknet 目录下运行 `./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 | tee log.txt` 开始训练，在当前目录下会生成log.txt文件，里面存放着训练时的输出数据，用于评估训练出来的模型。
+11. 在训练的过程中，会在 `darknet/backup` 文件夹底下产生一些权重模型，其中 .backup 为后缀的文件为最新的权重文件
+12. 可以运行 `./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup` 继续训练
+13. 训练结束后，在 `darknet` 目录底下运行 `./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg` 权重文件 要检测图片的路径进行测试<br>
+`./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg`
+14. 图片检测 `./darknet detector test cfg/coco.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights data/test.jpg`<br>
+15. 视频检测 `./darknet detector demo cfg/coco.data cfg/yolov3-voc.cfg backup/test data/input.avi`<br>
+	`./darknet detector demo data/voc.data yolov3.cfg yolov3.weights data/3.mp4 -out_filename xxx.mp4`<br>
 16. 参考： <br>
 	错误集锦 https://www.twblogs.net/a/5b8e0cee2b7177188342863e/zh-cn <br>
 	配置文件 https://blog.csdn.net/hrsstudy/article/details/65447947 <br>
